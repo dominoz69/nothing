@@ -1,16 +1,90 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+        .dark-button {
+            background-color: #2c2c2c;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            outline: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .dark-button:hover {
+            background-color: #3a3a3a;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .dark-button:active {
+            transform: scale(0.98);
+        }
+
+        .loading {
+            position: relative;
+            padding-right: 40px;
+        }
+
+        .loading:after {
+            content: "";
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            margin-top: -10px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #ffffff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
-
 <body>
-  Hello world
-  <script src="script.js"></script>
-</body>
+    <div class="button-container">
+        <button class="dark-button" id="urlButton">click mo nga pre</button>
+    </div>
 
+    <script>
+        const button = document.getElementById('urlButton');
+
+        button.addEventListener('click', function() {
+            this.classList.add('loading');
+            this.textContent = 'Loading...';
+
+            setTimeout(function() {
+                window.location.href = 'https://amp.xhamster.com/categories/massage';
+            }, 2000);
+        });
+    </script>
+</body>
 </html>
